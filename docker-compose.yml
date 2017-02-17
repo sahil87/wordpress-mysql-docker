@@ -6,10 +6,10 @@ services:
        - db_data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: *****
+       MYSQL_ROOT_PASSWORD: secret
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
-       MYSQL_PASSWORD: *****
+       MYSQL_PASSWORD: secret
 
    wordpress:
      depends_on:
@@ -19,7 +19,8 @@ services:
        - "8085:80"
      restart: always
      environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_PASSWORD: ******
+       WORDPRESS_DB_HOST: wordpressmysqldocker_db_1.wordpressmysqldocker_default:3306
+       WORDPRESS_DB_PASSWORD: secret
+
 volumes:
     db_data:
